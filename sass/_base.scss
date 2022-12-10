@@ -1,0 +1,54 @@
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2cb71a #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #2cb71a;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    @media (max-width: 1000px) {
+        &.disable-scroll {
+            overflow: hidden;
+
+            body {
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+body {
+    height: 3000px;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: $mainFontFamily;
+}
+
+.container {
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+    width: 100%;
+}

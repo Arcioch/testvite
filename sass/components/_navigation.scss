@@ -1,0 +1,112 @@
+.navigation {
+    padding: 20px 0;
+    background-color: $navigationBgColor;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+
+        @media (max-width: 1000px) {
+            display: none;
+        }
+
+        li {
+            a {
+                color: $navigationLinkColor;
+                font-size: 18px;
+                font-weight: 700;
+                transition: 300ms;
+
+                &:hover {
+                    color: $navigationLinkHoverColor;
+                }
+            }
+        }
+    }
+
+    .hamburger {
+        display: none;
+        width: 32px;
+        height: 29px;
+        background-color: transparent;
+        border: 0;
+        position: relative;
+        cursor: pointer;
+
+        @media (max-width: 1000px) {
+            display: block;
+        }
+
+        span {
+            position: absolute;
+            width: 32px;
+            height: 5px;
+            background-color: $hamburgerBgColor;
+
+            &:nth-of-type(1) {
+                top: 0;
+                left: 0;
+            }
+
+            &:nth-of-type(2) {
+                top: 50%;
+                left: 0;
+                translate: 0 -50%;
+            }
+
+            &:nth-of-type(3) {
+                left: 0;
+                bottom: 0;
+            }
+        }
+
+
+        &.is-open {
+            span {
+                &:nth-of-type(2) {
+                    display: none;
+                }
+
+                &:nth-of-type(1) {
+                    rotate: 45deg;
+                    top: 12px;
+                }
+
+                &:nth-of-type(3) {
+                    rotate: -45deg;
+                    bottom: 12px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        &.menu-open {
+            .menu {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                width: 100%;
+                height: calc(100% - 89px);
+                justify-content: center;
+                align-items: center;
+                top: 89px;
+                left: 0;
+                background-color: $navigationBgColor;
+            }
+        }
+    }
+
+
+
+}
